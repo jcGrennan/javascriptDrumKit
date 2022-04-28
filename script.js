@@ -7,15 +7,14 @@ function playSound(ev) {
     key.classList.toggle("playing")
 }
 
-window.addEventListener("keydown", playSound)
-
 function removeTransition(ev) {
     if(ev.propertyName !== "transform") return
     this.classList.remove("playing")
 }
 
+window.addEventListener("keydown", playSound)
+
 const keys = Array.from(document.querySelectorAll(".key"))
 keys.forEach(key => {
     key.addEventListener("transitionend", removeTransition)
 })
-
